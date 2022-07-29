@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <!-- <link rel="stylesheet" href="./assets/css/reset.css"> -->
+  <!-- Hamburguer -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.min.css">
+  <link rel="stylesheet" href="./assets/css/menu-hamburguesa.css">
+  <link rel="stylesheet" href="./assets/css/carrito.css">
+  <link rel="stylesheet" href="./assets/css/cart.button.css">
+  <title>Sneakers Store</title>
+</head>
+
+<body>
+  <div class="body-container">
+
+    <div id="cart-container">
+      <div class="cart__imagen">
+        <a href="#"><img src="./assets/img/cart.png" alt=""></a>
+      </div>
+      <div id="cart" class="cart__tabla">
+        <table id="cart-list">
+          <thead>
+            <tr>
+              <th>Imagen</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Cantidad</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <div class="cart__tabla__total">
+          <span></span>
+        </div>
+        <div class="cart__tabla__btn">
+          <button id="empty-cart">Limpiar carrito</button>
+        </div>
+      </div>
+    </div>
+
+    <header class="header">
+      <div class="navBar__logo">
+        <img src="./assets/img/pngegg (1).png" alt="">
+      </div>
+      <button class="hamburger hamburger--emphatic navBar__btn" type="button">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+      <aside class="panel">
+        <nav class="menu">
+          <a href="index.html">Home</a>
+          <a href="#section2">Search</a>
+          <a href="login.html">Log In</a>
+          <!-- <a href="#section4">Seccion 4</a> -->
+          <!-- <a href="#section5">Seccion 5</a> -->
+        </nav>
+      </aside>
+    </header>
+
+
+    <main class="main">
+      <section class="banner">
+        <div class="banner__container">
+          <img src="./assets/img/fc71ebc59d97825db5ab161b164c79dc.jpg" alt="">
+        </div>
+      </section>
+
+      <section id="section1" class="section">
+        <div class="selector">
+          <p class="after"><a class="select__jordan" href="#">Jordan</a></p>
+          <p class="after"><a class="select__tenis" href="#">Tenis</a></p>
+          <p><a class="select__football" href="#">Football</a></p>
+        </div>
+        <form class="search">
+          <div class="search__box">
+            <input type="text" placeholder="Search">
+            <button><img src="./assets/img/loop.png" alt=""></button>
+          </div>
+
+        </form>
+        <div class="error_container">
+
+        </div>
+        <div id="shoes-list" class="shoes__container">
+
+        </div>
+      </section>
+
+
+
+      <!-- <section class="banner-2">
+        <div class="banner__container_2">
+          <img src="./assets/img/01.jpg" alt="">
+        </div>
+        <div class="search__container">
+
+        </div>
+      </section> -->
+
+      <section class="search">
+
+      </section>
+
+
+
+      <!-- <section id="seccion3" class="section">
+        <h2>Seccion 3</h2>
+      </section>
+      <section id="seccion4" class="section">
+        <h2>Seccion 4</h2>
+      </section>
+      <section id="seccion5" class="section">
+        <h2>Seccion 5</h2>
+      </section> -->
+    </main>
+
+    <footer>
+      <div class="footer-main">
+        <div class="ftr-container">
+          <div class="ftr-1">
+            <div class="ftr-1-title">
+              <h2>NIKE SHOES</h2>
+            </div>
+            <div class="ftr-news-title">
+              <h3>NEWSLETTER</h3>
+            </div>
+            <div class="ftr-newsletter">
+              <input type="email" required>
+              <button type="submit"><a>JOIN</a></button>
+            </div>
+          </div>
+          <div class="ftr-2">
+            <div class="ftr-contact-title">
+              <h3>CONTACT</h3>
+            </div>
+            <div class="ftr-contact-content">
+              <p><span>Address:</span> ssafhosfg od fosf</p>
+              <p><span>Phone:</span> ssafhosfg od fosf</p>
+              <p><span>Email:</span> ssafhosfg od fosf</p>
+            </div>
+            <!-- <div class="ftr-contact-social">
+                      <ul>
+                          <li><a><i class="fa fa-brands fa-chrome" style="color: white;"></i></a></li>
+                          <li><a><i class="fa fa-brands fa-instagram" style="color: white;"></i></a></li>
+                          <li><a><i class="fa fa-brands fa-twitter" style="color: white;"></i></a></li>
+                          <li><a><i class="fa fa-brands fa-facebook-f" style="color: white;"></i></a></li>
+                      </ul>
+                  </div> -->
+          </div>
+        </div>
+        <div class="ftr-bottom">
+          <p>© Copyright by <a href="https://github.com/gonferreyra/" target="_blank">gonferreyra</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+
+  </div>
+
+
+  <script src="./assets/js/app.js" type="module"></script>
+</body>
+
+</html>
