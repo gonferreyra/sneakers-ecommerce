@@ -59,7 +59,7 @@
 .panel.is-active {
     transform: translate(0, 0);
     opacity: 1;
-    height: 55vh;
+    height: 51vh;
 }
 
 .menu {

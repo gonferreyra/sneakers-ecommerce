@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="./assets/css/menu-hamburguesa.css">
   <link rel="stylesheet" href="./assets/css/carrito.css">
   <link rel="stylesheet" href="./assets/css/cart.button.css">
+  <link rel="icon" href="./assets/img/nike-48_46226.ico">
   <title>Sneakers Store</title>
 </head>
 
@@ -48,15 +49,15 @@
       <div class="navBar__logo">
         <img src="./assets/img/pngegg (1).png" alt="">
       </div>
-      <button class="hamburger hamburger--emphatic navBar__btn" type="button">
+      <button id="hamburguer" class="hamburger hamburger--emphatic navBar__btn" type="button">
         <span class="hamburger-box">
           <span class="hamburger-inner"></span>
         </span>
       </button>
-      <aside class="panel">
+      <aside id="panel" class="panel">
         <nav class="menu">
           <a href="index.html">Home</a>
-          <a href="#section2">Search</a>
+          <a href="#search">Search</a>
           <a href="login.html">Log In</a>
           <!-- <a href="#section4">Seccion 4</a> -->
           <!-- <a href="#section5">Seccion 5</a> -->
@@ -72,25 +73,28 @@
         </div>
       </section>
 
-      <section id="section1" class="section">
-        <div class="selector">
-          <p class="after"><a class="select__jordan" href="#">Jordan</a></p>
-          <p class="after"><a class="select__tenis" href="#">Tenis</a></p>
-          <p><a class="select__football" href="#">Football</a></p>
-        </div>
-        <form class="search">
-          <div class="search__box">
-            <input type="text" placeholder="Search">
-            <button><img src="./assets/img/loop.png" alt=""></button>
+      <section id="section" class="section">
+        <div class="section1-container">
+          <div class="selector">
+            <p class="after"><a class="select__jordan" href="#">Jordan</a></p>
+            <p class="after"><a class="select__tenis" href="#">Tenis</a></p>
+            <p><a class="select__football" href="#">Football</a></p>
           </div>
+          <form id="search" class="search">
+            <div class="search__box">
+              <input type="text" placeholder="Search">
+              <button><img src="./assets/img/loop.png" alt=""></button>
+            </div>
 
-        </form>
-        <div class="error_container">
+          </form>
+          <div class="error_container">
 
+          </div>
+          <div id="shoes-list" class="shoes__container">
+
+          </div>
         </div>
-        <div id="shoes-list" class="shoes__container">
 
-        </div>
       </section>
 
 
@@ -103,10 +107,6 @@
 
         </div>
       </section> -->
-
-      <section class="search">
-
-      </section>
 
 
 

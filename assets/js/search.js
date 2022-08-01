@@ -1,8 +1,7 @@
-import * as variable from "./variables.js"
-import { cleanCartHTML, cleanHTML } from "./app.js";
+import * as v from "./variables.js"
+import { cleanHTML } from "./cart.js";
 import { sneakers } from "./db.js";
 import { showError } from "./error.js";
-import { loadSelectedShoes } from "./loadshoes.js";
 
 // const inputSearchBtn = document.querySelector(".search button");
 const inputSearch = document.querySelector(".search input");
@@ -37,7 +36,7 @@ export function searchSneakers() {
     console.log(searchResult)
     console.log(searchValue)
     showSearchDOM(searchResult);
-}
+};
 
 function showSearchDOM(arr) {
     cleanHTML();
@@ -63,10 +62,6 @@ function showSearchDOM(arr) {
                 <a href="#" class="add-to-cart" data-id="${id}">Add to cart</a>
             </div>
             `
-        variable.shoesContainer.appendChild(div)
-
-
-        // shoesContainerAll.appendChild(div);
+        v.shoesContainer.appendChild(div);
     });
-
-}
+};

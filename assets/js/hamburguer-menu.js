@@ -8,7 +8,21 @@ export function hamburguerMenu() {
         e.preventDefault()
         btn.classList.toggle("is-active")
         panel.classList.toggle("is-active")
+        
     });
 }
+
+// Quitamos la clase is-active cuando pasa los 768px
+const classListPanel = document.getElementById('panel').classList;
+const hamburguerBtn = document.getElementById('hamburguer').classList;
+const minWidth768 = window.matchMedia("(min-width: 768px)");
+
+function removeIsActive() {
+    if(minWidth768.matches) {
+        classListPanel.remove('is-active');
+        hamburguerBtn.remove('is-active');
+    };
+};
+minWidth768.addListener(removeIsActive);
 
 // Falta que cuando hagamos click en el boton dentro del nav, le quite la clase "is-active" al menu
