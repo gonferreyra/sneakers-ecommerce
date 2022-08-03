@@ -19,4 +19,5 @@ export const cartContainer = document.querySelector("#cart-list tbody"),
     formError = document.querySelector('.form__error'),
     formBtn = document.querySelector('.form__button'),
     productBtn = document.querySelector('.product-btn'),
-    productContainer = document.querySelector('.products');
+    productContainer = document.querySelector('.products'),
+    bannerText = document.querySelector('.banner__text')

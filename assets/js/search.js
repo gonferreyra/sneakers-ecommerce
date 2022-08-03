@@ -46,20 +46,29 @@ function showSearchDOM(arr) {
         const div = document.createElement('div');
         div.classList.add('shoes-card');
         div.innerHTML = `
-            <div class="card__img">
-                <img src="${url}" alt="">
-            </div>
-            <div class="card__name">
-                <p>${name}</p>
-            </div>
-            <div class="card__category">
-                <p>${category}</p>
-            </div>
-            <div class="card__price">
-                <p>$ ${price}</p>
-            </div>
-            <div class="card__btn">
-                <a href="#" class="add-to-cart" data-id="${id}">Add to cart</a>
+            <div class="shoes__card__container">
+                <div class="card__img">
+                    <img src="${url}" alt="">
+                </div>
+                <div class="card__name">
+                    <p>${name}</p>
+                </div>
+                <div class="card__category">
+                    <p>${category}</p>
+                </div>
+                <div class="card__price">
+                    <p>$ ${price}</p>
+                </div>
+                <div class="card__btn">
+                    <button class="learn-more">
+                        <a href="#" class="add-to-cart" data-id="${id}">
+                            <span class="circle add-to-cart" aria-hidden="true">
+                            <span class="icon arrow add-to-cart"></span>
+                            </span>
+                            <span class="button-text add-to-cart">Add to Cart</span>
+                        </a>
+                    </button>
+                </div>
             </div>
             `
         v.shoesContainer.appendChild(div);
