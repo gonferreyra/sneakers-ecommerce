@@ -19,22 +19,22 @@ export function searchSneakers() {
             const { name, category, price } = sneaker;
             if (category.toLowerCase() === searchValue) {
                 // Agregar al array searchresult la sneaker
-                // console.log(sneaker);
                 searchResult.push(sneaker)
+                return;
             } else if (name.toLowerCase().includes(searchValue)) {
-                // console.log(sneaker);
                 searchResult.push(sneaker)
+                return;
             } else if (price.toString().includes(searchValue)) {
-                // console.log(sneaker)
                 searchResult.push(sneaker)
+                return;
             }
         });
+
+        if (searchResult.length === 0) {
+            showError("No hay disponible zapatillas con los parametros ingresados. Intente nuevamente con otros parametros.")
+        }
     }
-
-
     // Llamar funcion que tome como parametro el array searchResult y lo muestre en el DOM, limpiando lo anterior
-    console.log(searchResult)
-    console.log(searchValue)
     showSearchDOM(searchResult);
 };
 
@@ -42,7 +42,6 @@ function showSearchDOM(arr) {
     cleanHTML();
     arr.map(sneaker => {
         const { id, name, category, price, stock, url } = sneaker;
-
         const div = document.createElement('div');
         div.classList.add('shoes-card');
         div.innerHTML = `

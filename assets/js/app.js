@@ -3,7 +3,7 @@ import { hamburguerMenu } from "./hamburguer-menu.js"
 import { sneakers } from "./db.js"
 import { loadSelectedShoes } from "./loadshoes.js"
 import { searchSneakers } from "./search.js";
-import { addToCart, deleteSneaker, resetCartItems, cleanCartHTML, cartHTML, getLocalStorage } from "./cart.js";
+import { addToCart, deleteSneaker, resetCartItems, cleanCartHTML, cartHTML, getLocalStorage, cartQuantityAdd, cartQuantityRemove } from "./cart.js";
 
 LoadEventlisteners()
 function LoadEventlisteners() {
@@ -50,4 +50,10 @@ function LoadEventlisteners() {
         cleanCartHTML();
         cartHTML();
     });
+
+    // Add quantity to cart
+    v.cartTable.addEventListener('click', cartQuantityAdd);
+
+    // Remove quantity to cart
+    v.cartTable.addEventListener('click', cartQuantityRemove);
 };

@@ -1,7 +1,7 @@
 import * as v from "./variables.js";
 import { hamburguerMenu } from "./hamburguer-menu.js";
 import { sneakers } from "./db.js";
-import { cleanCartHTML, sincronizarStorage, getLocalStorage, deleteSneaker, cartItems, updateCartItems, addCartItemsExport, resetCartItems} from "./cart.js";
+import { cleanCartHTML, sincronizarStorage, getLocalStorage, deleteSneaker, cartItems, updateCartItems, addCartItemsExport, resetCartItems, cartQuantityAdd, cartQuantityRemove } from "./cart.js";
 
 loadEventListeners();
 function loadEventListeners() {
@@ -28,6 +28,12 @@ function loadEventListeners() {
     cleanCartHTML();
     cartHTML();
   });
+
+  // Add quantity to cart
+  v.cartTable.addEventListener('click', cartQuantityAdd);
+
+  // Remove quantity to cart
+  v.cartTable.addEventListener('click', cartQuantityRemove);
 };
 
 const getInfo = () => {
@@ -78,39 +84,39 @@ const LoadProductCard = (id) => {
 
 function addToCartProduct(e) {
   if (e.target.classList.contains('add-to-cart')) {
-      e.preventDefault();
-      const selectedSneaker = e.target.parentElement.parentElement.parentElement.parentElement.parentElement;
-      readDataProduct(selectedSneaker);
+    e.preventDefault();
+    const selectedSneaker = e.target.parentElement.parentElement.parentElement.parentElement.parentElement;
+    readDataProduct(selectedSneaker);
   }
 };
 
-function readDataProduct(sneaker) {  
+function readDataProduct(sneaker) {
   const sneakerInfo = {
-      img: sneaker.querySelector(".product__img img").src,
-      name: sneaker.querySelector(".product__name__title h2").textContent, //Extrameos el texto
-      price: sneaker.querySelector(".product__price p").textContent,
-      id: sneaker.querySelector(".product__btn a").getAttribute("data-id"),
-      cantidad: 1
+    img: sneaker.querySelector(".product__img img").src,
+    name: sneaker.querySelector(".product__name__title h2").textContent, //Extrameos el texto
+    price: sneaker.querySelector(".product__price p").textContent,
+    id: sneaker.querySelector(".product__btn a").getAttribute("data-id"),
+    cantidad: 1
   }
 
   // Revisar si existe el elemento en el carrito
   const exists = cartItems.some(sneaker => sneaker.id === sneakerInfo.id);
   if (exists) {
-      // Actualizamos la cantidad
-      const sneakers = cartItems.map(sneaker => {
-        console.log(sneaker)
-          if (sneaker.id === sneakerInfo.id) {
-              sneaker.cantidad++;
-              return sneaker;
-          } else {
-              return sneaker;
-          }
-      });
-      updateCartItems(sneakers);
+    // Actualizamos la cantidad
+    const sneakers = cartItems.map(sneaker => {
+      console.log(sneaker)
+      if (sneaker.id === sneakerInfo.id) {
+        sneaker.cantidad++;
+        return sneaker;
+      } else {
+        return sneaker;
+      }
+    });
+    updateCartItems(sneakers);
 
   } else {
-      // Agregamos el articulo al carrito
-      addCartItemsExport(cartItems, sneakerInfo)
+    // Agregamos el articulo al carrito
+    addCartItemsExport(cartItems, sneakerInfo)
   }
   cartHTML();
 };
@@ -121,7 +127,7 @@ function cartHTML() {
   let cartListTotal = 0;
 
   if (cartListTotal === 0) {
-      v.cartTablaTotalSpan.textContent = "No hay elementos en el carrito";
+    v.cartTablaTotalSpan.textContent = "No hay elementos en el carrito";
   }
 
   //Limpiar carrito HTML
@@ -129,13 +135,13 @@ function cartHTML() {
 
   // Recorrer el carrito
   cartItems.forEach(sneaker => {
-      // Falta cantidad, VER COMO LO HAGO
-      const { img, name, price, cantidad, id } = sneaker;
-      console.log(img, name, price, cantidad, id)
-      cartListTotal += parseInt(price.slice(2)) * cantidad;
-      console.log(cartListTotal)
-      const row = document.createElement("tr");
-      row.innerHTML = `
+    // Falta cantidad, VER COMO LO HAGO
+    const { img, name, price, cantidad, id } = sneaker;
+    console.log(img, name, price, cantidad, id)
+    cartListTotal += parseInt(price.slice(2)) * cantidad;
+    console.log(cartListTotal)
+    const row = document.createElement("tr");
+    row.innerHTML = `
       <td>
           <img src="${img}">
       </td>
@@ -150,11 +156,11 @@ function cartHTML() {
           <a href="#" class="delete-sneaker" data-id="${id}"> X </a>  
       </td>
       `
-      v.cartContainer.appendChild(row);
-      // Quitar el parrafo y agregar total
-      if (cartListTotal > 0) {
-          v.cartTablaTotalSpan.textContent = `Total $ ${cartListTotal}`;
-      }
+    v.cartContainer.appendChild(row);
+    // Quitar el parrafo y agregar total
+    if (cartListTotal > 0) {
+      v.cartTablaTotalSpan.textContent = `Total $ ${cartListTotal}`;
+    }
   });
   // Agregar el carrito de compras al storage
   sincronizarStorage();

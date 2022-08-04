@@ -1,7 +1,7 @@
 import * as v from './variables.js';
 
 // Variable donde se almacenan los articulos del carrito
-export let cartItems = []; 
+export let cartItems = [];
 
 // funcion que resetee el carrito (no esta permitido reasignar valores a variables importadas)
 export function resetCartItems() {
@@ -29,7 +29,7 @@ export function addToCart(e) {
     }
 }
 
-export function readData(sneaker) {  
+export function readData(sneaker) {
     const sneakerInfo = {
         img: sneaker.querySelector(".card__img img").src,
         name: sneaker.querySelector(".card__name p").textContent, //Extrameos el texto
@@ -68,6 +68,38 @@ export function deleteSneaker(e) {
     }
 }
 
+export function cartQuantityRemove(e) {
+    if (e.target.classList.contains("button__minus")) {
+        const sneakerId = e.target.getAttribute("data-id");
+        const sneakers = cartItems.map(sneaker => {
+            if (sneaker.id == sneakerId && sneaker.cantidad >= 2) {
+                sneaker.cantidad--;
+                return sneaker;
+            } else {
+                return sneaker;
+            }
+        });
+        cartItems = [...sneakers];
+    }
+    cartHTML();
+}
+
+export function cartQuantityAdd(e) {
+    if (e.target.classList.contains("button__plus")) {
+        const sneakerId = e.target.getAttribute("data-id");
+        const sneakers = cartItems.map(sneaker => {
+            if (sneaker.id == sneakerId && sneaker.cantidad) {
+                sneaker.cantidad++;
+                return sneaker;
+            } else {
+                return sneaker;
+            }
+        });
+        cartItems = [...sneakers];
+    }
+    cartHTML();
+}
+
 // Mostrar el carrito en el HTML
 export function cartHTML() {
 
@@ -77,7 +109,6 @@ export function cartHTML() {
     if (cartListTotal === 0) {
         v.cartTablaTotalSpan.textContent = "No hay elementos en el carrito";
     }
-
 
     //Limpiar carrito HTML
     cleanCartHTML();
@@ -96,9 +127,9 @@ export function cartHTML() {
         <td>${name}</td>
         <td>${price}</td>
         <td>
-        <button>-</button>
+        <button class="button__minus" data-id="${id}">-</button>
         ${cantidad}
-        <button>+</button>
+        <button class="button__plus" data-id="${id}">+</button>
         </td>
         <td>
             <a href="#" class="delete-sneaker" data-id="${id}"> X </a>  
@@ -110,6 +141,7 @@ export function cartHTML() {
             v.cartTablaTotalSpan.textContent = `Total $ ${cartListTotal}`;
         }
     });
+
     // Agregar el carrito de compras al storage
     sincronizarStorage();
 }

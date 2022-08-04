@@ -1,6 +1,7 @@
 import * as v from "./variables.js"
 import { loadSelectedShoes } from "./loadshoes.js";
 import { sneakers } from "./db.js";
+import { cleanHTML } from "./cart.js";
 
 export function showError(message) {
     cleanErrorHTML()
@@ -11,7 +12,7 @@ export function showError(message) {
     setTimeout(() => {
         alerta.remove();
         loadSelectedShoes(sneakers, "Tenis");
-    }, 3500);
+    }, 3000);
 };
 
 export function cleanErrorHTML() {
@@ -28,5 +29,5 @@ export function showErrorLogin(message) {
     v.formError.appendChild(alerta)
     setTimeout(() => {
         alerta.remove();
-    }, 3500);
+    }, 3000);
 };
