@@ -9,7 +9,6 @@ LoadEventlisteners()
 function LoadEventlisteners() {
     document.addEventListener('DOMContentLoaded', () => {
         hamburguerMenu();
-        // loadShoes(sneakers);
         loadSelectedShoes(sneakers, "Tenis")
         // Localstorage
         getLocalStorage();

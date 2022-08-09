@@ -1,9 +1,6 @@
 import * as v from "./variables.js"
 import { cleanHTML } from "./cart.js";
 
-// const shoesContainer = document.querySelector('.shoes__container');
-// const shoesContainerAll = document.querySelector('.shoes__container__all');
-
 // Muesta solo la categoria elegida
 export const loadSelectedShoes = (sneakers, brand) => {
   cleanHTML();

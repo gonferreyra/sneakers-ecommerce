@@ -3,7 +3,6 @@ import { cleanHTML } from "./cart.js";
 import { sneakers } from "./db.js";
 import { showError } from "./error.js";
 
-// const inputSearchBtn = document.querySelector(".search button");
 const inputSearch = document.querySelector(".search input");
 
 export function searchSneakers() {
