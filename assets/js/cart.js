@@ -33,6 +33,7 @@ export function readData(sneaker) {
     const sneakerInfo = {
         img: sneaker.querySelector(".card__img img").src,
         name: sneaker.querySelector(".card__name p").textContent, //Extrameos el texto
+        // stock: sneaker.querySelector(".card__stock p").textContent,
         price: sneaker.querySelector(".card__price p").textContent,
         id: sneaker.querySelector(".card__btn a").getAttribute("data-id"),
         cantidad: 1
@@ -44,6 +45,14 @@ export function readData(sneaker) {
         // Actualizamos la cantidad
         const sneakers = cartItems.map(sneaker => {
             if (sneaker.id === sneakerInfo.id) {
+                // if(sneaker.cantidad >= sneakerInfo.stock) {
+                //     // console.log("no hay stock");
+                //     // outOfStockError();
+                //     return sneaker;
+                // } else {
+                //     sneaker.cantidad++;
+                //     return sneaker;
+                // }
                 sneaker.cantidad++;
                 return sneaker;
             } else {
@@ -164,3 +173,11 @@ export function cleanHTML() {
         v.shoesContainer.removeChild(v.shoesContainer.firstChild)
     }
 }
+
+// No hay stock
+// function outOfStockError() {
+//     setTimeout(() => {
+//         v.stockErrorDiv.textContent = "No stock on selected sneaker";
+//     }, timeout);
+    
+// }

@@ -1,7 +1,6 @@
 import * as v from "./variables.js"
 import { loadSelectedShoes } from "./loadshoes.js";
 import { sneakers } from "./db.js";
-import { cleanHTML } from "./cart.js";
 
 export function showError(message) {
     cleanErrorHTML()

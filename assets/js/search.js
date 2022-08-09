@@ -12,7 +12,7 @@ export function searchSneakers() {
     let searchValue = inputSearch.value.toLowerCase();
 
     if (searchValue === "") {
-        showError("Busqueda vacia, debe ingresar un precio, categoria o nombre para buscar");
+        showError("The search field is empty. You can try by name, price or category. Please try again");
         return;
     } else {
         sneakers.map(sneaker => {
@@ -31,7 +31,7 @@ export function searchSneakers() {
         });
 
         if (searchResult.length === 0) {
-            showError("No hay disponible zapatillas con los parametros ingresados. Intente nuevamente con otros parametros.")
+            showError("There are no sneakers with the searched parameters. You can try by name, price or category. Please try again")
         }
     }
     // Llamar funcion que tome como parametro el array searchResult y lo muestre en el DOM, limpiando lo anterior

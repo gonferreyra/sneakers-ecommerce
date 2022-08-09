@@ -23,4 +23,5 @@ export const cartContainer = document.querySelector("#cart-list tbody"),
     bannerText = document.querySelector('.banner__text'),
     buttonCartMinus = document.querySelectorAll('.button__minus'),
     buttonCartPlus = document.querySelectorAll('.button__plus'),
-    cartTable = document.querySelector('.cart__tabla')
+    cartTable = document.querySelector('.cart__tabla'),
+    stockErrorDiv = document.querySelector('.stock__error span')

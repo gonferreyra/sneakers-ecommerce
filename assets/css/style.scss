@@ -331,6 +331,11 @@ img {
     .section-container {
       max-width: var(--container-width);
 
+      @media screen and (min-width: 1200px) {
+        max-width: 1200px;
+        margin: auto;
+      }
+
       .selector {
         display: flex;
         flex-direction: row;

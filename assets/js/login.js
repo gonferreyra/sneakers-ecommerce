@@ -1,6 +1,8 @@
 import * as v from './variables.js';
 import { hamburguerMenu } from './hamburguer-menu.js'
 
+let username = "nucba";
+let password = 123456;
 
 document.addEventListener('DOMContentLoaded', () => {
     hamburguerMenu();
@@ -18,8 +20,14 @@ const formValidation = () => {
     } else if (v.loginPassword.value === '') {
         showErrorLogin('Password is required. Please try again')
         return;
+    } else {
+        if (v.loginUsername.value === username && parseInt(v.loginPassword.value) === password) {
+            // console.log(username)
+            loginMsg("Login succesfull")
+        } else {
+            showErrorLogin('Username or password incorrect. Please try again')
+        }
     }
-    loginMsg("Login exitoso");
 };
 
 function loginMsg(message) {

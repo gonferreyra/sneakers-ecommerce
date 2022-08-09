@@ -313,6 +313,12 @@ img {
 .main .section .section-container {
   max-width: var(--container-width);
 }
+@media screen and (min-width: 1200px) {
+  .main .section .section-container {
+    max-width: 1200px;
+    margin: auto;
+  }
+}
 .main .section .section-container .selector {
   display: flex;
   flex-direction: row;

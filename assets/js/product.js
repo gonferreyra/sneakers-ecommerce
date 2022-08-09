@@ -104,7 +104,7 @@ function readDataProduct(sneaker) {
   if (exists) {
     // Actualizamos la cantidad
     const sneakers = cartItems.map(sneaker => {
-      console.log(sneaker)
+      // console.log(sneaker)
       if (sneaker.id === sneakerInfo.id) {
         sneaker.cantidad++;
         return sneaker;
@@ -137,9 +137,9 @@ function cartHTML() {
   cartItems.forEach(sneaker => {
     // Falta cantidad, VER COMO LO HAGO
     const { img, name, price, cantidad, id } = sneaker;
-    console.log(img, name, price, cantidad, id)
+    // console.log(img, name, price, cantidad, id)
     cartListTotal += parseInt(price.slice(2)) * cantidad;
-    console.log(cartListTotal)
+    // console.log(cartListTotal)
     const row = document.createElement("tr");
     row.innerHTML = `
       <td>
