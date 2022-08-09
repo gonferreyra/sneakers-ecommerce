@@ -50,6 +50,11 @@ function LoadEventlisteners() {
         cartHTML();
     });
 
+    // Buy
+    v.buyBtn.addEventListener('click', () => {
+        window.location.href = 'login.html'
+    })
+
     // Add quantity to cart
     v.cartTable.addEventListener('click', cartQuantityAdd);
 
